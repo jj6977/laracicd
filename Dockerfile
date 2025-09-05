@@ -21,4 +21,6 @@ RUN composer install --no-dev --optimize-autoloader
 # Set permissions
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-CMD ["php-fpm"]
+EXPOSE 80
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+
